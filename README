@@ -14,5 +14,45 @@ OAUTH2
 OAuth 2.0 is a simpler version of OAuth that leverages SSL for API communication instead of relying on complex URL signature schemes and token exchanges. At a high level, using OAuth 2.0 entails getting an access token for a Facebook user via a redirect to Facebook. After you obtain the access token for a user, you can perform authorized requests on behalf of that use by including the access token in your Graph API requests
 
 
+Det vi kan se på:
+
 Registrer ny facebook app på
 http://www.facebook.com/developers/
+
+Facebook
+
+Vi skal se på 
+- autentisering av personer og autorisering for applikasjoner
+- Facebook graph api
+
+- facebook bruker oauth2 til begge deler.
+- prinsippet er at 
+    - en applikasjon sender en bruker til facebook. Sender også med en redirect_uri
+    - Facebook autentiserer og lar brukeren autorisere en app, og sender tilbake til redirect_uri med en auth_token
+    - denne auth_token kan brukes mot facebooks graph API
+
+
+opprett app på facebook
+- facebook.com/developers
+- test-faggruppe
+- den må få en canvas url: http://localhost:3000
+- legg merke til application Id og applikasjons hemmelighet
+
+Lag en liten app som kan 
+- autentisere en bruker
+- få autorisasjon av facebook til å gjøre ting mot facebook på vegne av brukeren
+
+Har laget en liten applikasjon - fb-faggruppe. Disse tingene har jeg gjort:
+- Gemfile: gem 'fbgraph'
+- Laget controller: OauthController med to metoder: start og callback
+- Oppdatert routes for å legge til root url og oauth urler
+- lagt til en metode client i ApplicationController
+  - lagt til application_id og secret i client-metoden
+- Laget en home som skriver ut navnet mitt
+
+- Vis også profilbildet mitt med 
+  @picture = client.selection.me.picture
+- Legg til side som lister opp alle vennene mine:
+  @friends = client.selection.me.friends.info!.data
+
+legg inn i iframe
