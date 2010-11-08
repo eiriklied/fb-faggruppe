@@ -12,3 +12,7 @@ http://developers.facebook.com/docs/authentication/
 
 OAUTH2
 OAuth 2.0 is a simpler version of OAuth that leverages SSL for API communication instead of relying on complex URL signature schemes and token exchanges. At a high level, using OAuth 2.0 entails getting an access token for a Facebook user via a redirect to Facebook. After you obtain the access token for a user, you can perform authorized requests on behalf of that use by including the access token in your Graph API requests
+
+
+Registrer ny facebook app på
+http://www.facebook.com/developers/
