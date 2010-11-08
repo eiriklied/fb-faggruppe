@@ -8,6 +8,8 @@ FbFaggruppe::Application.routes.draw do
   end
 
   root :to => 'oauth#start'
+  
+  match 'home' => 'pages#home', :as => :home
 
 
   # The priority is based upon order of creation:
