@@ -10,8 +10,11 @@ FbFaggruppe::Application.routes.draw do
   root :to => 'oauth#start'
   
   match 'home' => 'pages#home', :as => :home
-
-
+  match 'friends' => 'pages#friends', :as => :friends
+  match 'publish' => 'pages#publish', :as => :publish
+  
+  
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
